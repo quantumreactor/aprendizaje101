@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Aprendizaje101</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+            <% if user_signed_in? %>     
+    <%= render 'shared/navbar' %>
+              <%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+    <h3>Hola <%= @me.name %>! (<%= @me.id %>) </h3>
+     
+    <h4> Tablero de prospectos </h4>
+    <p><%= link_to 'Agregar prospecto', new_lead_path%></p>
+       <table>
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Nombre</th>
+          <th>Celular</th>
+          <th>Estado</th>
+          <th>Ingresante</th>
+          <th>Fecha</th>
+          <th>Reus</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+    <% @leads.each do |lead| %>
+        <tr>
+          <td><%= lead.email %></td>
+          <td><%= lead.name %></td>
+          <td><%= lead.phone %></td>
+          <td><%= lead.status %></td>
+          <td><%= lead.user_id %></td>
+          <td><%= lead.indate %></td>
+          <td><%= lead.indate %></td>
+          <td>
+          <%= link_to "📝", edit_lead_path(lead), title: 'Editar' %> | 
+          <%= link_to "🗑️", lead_path(lead), title: 'Eliminar', method: :delete, data: { confirm: "Esta seguro?"} %> </td>
+        </tr>
+    <% end %>
+      </tbody>
+    </table>
+    <%= yield %>
+        <% else %>
+          <h2>Restriccion de acceso</h2>
+          <p>El sitio esta restringido, si cree que debe tener acceso, contacte al admin en accesos@aprendizaje101.org</p>
+              <%= link_to "Iniciar sesion", new_user_session_path, class: "nav-link" %>
+          <% end %>
+  </body>
+</html>
