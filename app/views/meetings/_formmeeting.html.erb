@@ -1,0 +1,5 @@
+<%= simple_form_for [ @lead, @meeting ] do |m| %>
+  <%= m.input :summary %>
+  <%= m.input :content %>
+  <%= m.submit "Subir conversacion", class: "btn btn-primary" %>
+<% end %>

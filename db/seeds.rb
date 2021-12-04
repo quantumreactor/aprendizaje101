@@ -9,6 +9,7 @@
 Meeting.destroy_all
 Lead.destroy_all
 User.destroy_all
+Status.destroy_all
 
 
 puts "Database records wiped clean!"
@@ -73,44 +74,150 @@ lead2 = Lead.new({
 })
 lead2.save
 
-# meeting0 = Meeting.new({
-#   summary: "mas datos",
-#   content: "Ofrecer descripcion de ventajas didacticas del producto",
-#   user: user0,
-#   lead: lead0,
-# })
-# meeting0.save
+lead3 = Lead.new({
+                   status: "prospecto",
+                   email: "sirlord@uk.co",
+                   name: "Iain M Banks",
+                   phone: "+56982434254",
+                   indate: "2021-09-09",
+                   user: user2,
+                 })
+lead3.save
+
+lead4 = Lead.new({
+                   status: "interesado",
+                   email: "gaston@ar.com",
+                   name: "Gaston Argentini",
+                   phone: "+56934554",
+                   indate: "2019-01-11",
+                   user: user1,
+                 })
+lead4.save
+
+lead5 = Lead.new({
+                   status: "interesado",
+                   email: "paco@tenerife.com",
+                   name: "Francisco de la Palma",
+                   phone: "+569824563",
+                   indate: "2021-07-05",
+                   user: user2,
+                 })
+lead5.save
+
+lead6 = Lead.new({
+                   status: "prospecto",
+                   email: "kludio@ct.com",
+                   name: "Claudio Hortigosa",
+                   phone: "+56934563564",
+                   indate: "2021-03-02",
+                   user: user2,
+                 })
+lead6.save
+
+lead7 = Lead.new({
+                   status: "prospecto",
+                   email: "rcanales@segsal.com",
+                   name: "Roberto Canales",
+                   phone: "+5652345234",
+                   indate: "2021-05-02",
+                   user: user1,
+                 })
+lead7.save
+
+lead8 = Lead.new({
+                   status: "cliente",
+                   email: "edunal@cls.com",
+                   name: "Eduardo Aldunate",
+                   phone: "+5694563654",
+                   indate: "2021-04-04",
+                   user: user1,
+                 })
+lead8.save
+
+lead9 = Lead.new({
+                   status: "prospecto",
+                   email: "artemis@helenics.com",
+                   name: "Arturo Temistocles",
+                   phone: "+56985675674",
+                   indate: "2021-06-03",
+                   user: user0,
+                 })
+lead9.save
+
 
 
 # user1
 Lead.create(
-  status: "prospecto",
-  email: "tito@iberia.com",
-  name: "roberto cadiz",
-  phone: "+56912457856",
-  indate: "2021-04-06",
-  user: user1
+status: "prospecto",
+email: "tito@iberia.com",
+name: "roberto cadiz",
+phone: "+56912457856",
+indate: "2021-04-06",
+user: user1
 )
 Lead.create(
-  status: "interesado",
-  email: "rulo@scel.com",
-  name: "rodolfo usquidez",
-  phone: "+569564654",
-  indate: "2021-02-08",
-  user: user1
+status: "interesado",
+email: "rulo@scel.com",
+name: "rodolfo usquidez",
+phone: "+569564654",
+indate: "2021-02-08",
+user: user1
 )
 
 # user2
 Lead.create(
-  status: "prospecto",
-  email: "jorge@scel.com",
-  name: "Jorge Sanhueza",
-  phone: "+569834545654",
-  indate: "2021-06-07",
-  user: user2
+status: "prospecto",
+email: "jorge@scel.com",
+name: "Jorge Sanhueza",
+phone: "+569834545654",
+indate: "2021-06-07",
+user: user2
 )
-
 puts "#{Lead.all.count} leads created!"
 
+puts "Seeding meetings ===================="
+meeting0 = Meeting.new({
+                          summary: "mas datos",
+                          content: "Ofrecer descripcion de ventajas didacticas del producto",
+                          user: user0,
+                          lead: lead0,
+                        })
+meeting0.save
+
+meeting1 = Meeting.new({
+                         summary: "aun mas datos",
+                         content: "demostracion de valor agregado",
+                         user: user0,
+                         lead: lead1,
+                       })
+meeting1.save
+meeting2 = Meeting.new({
+                         summary: "llameme",
+                         content: "demostracion de producto",
+                         user: user1,
+                         lead: lead1,
+                       })
+meeting2.save
+meeting3 = Meeting.new({
+                         summary: "llamar el lunes",
+                         content: "quiere saber mas",
+                         user: user1,
+                         lead: lead1,
+                       })
+meeting3.save
+
+
+puts "#{Meeting.all.count} meetings created!"
+
+Status.create(
+  status: "interesado"
+)
+Status.create(
+  status: "prospecto"
+)
+Status.create(
+  status: "cliente"
+)
+puts "#{Status.all.count} statuses created!"
 
 puts "Done!"

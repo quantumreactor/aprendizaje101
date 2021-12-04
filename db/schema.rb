@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_27_133212) do
+ActiveRecord::Schema.define(version: 2021_11_27_230229) do
 
   create_table "leads", force: :cascade do |t|
     t.string "status", default: "prospecto"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_11_27_133212) do
     t.string "name"
     t.string "phone"
     t.date "indate"
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_leads_on_user_id"
@@ -27,12 +27,18 @@ ActiveRecord::Schema.define(version: 2021_11_27_133212) do
   create_table "meetings", force: :cascade do |t|
     t.string "summary"
     t.string "content"
-    t.integer "user_id", null: false
-    t.integer "lead_id", null: false
+    t.integer "user_id"
+    t.integer "lead_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["lead_id"], name: "index_meetings_on_lead_id"
     t.index ["user_id"], name: "index_meetings_on_user_id"
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,7 +55,4 @@ ActiveRecord::Schema.define(version: 2021_11_27_133212) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "leads", "users"
-  add_foreign_key "meetings", "leads"
-  add_foreign_key "meetings", "users"
 end

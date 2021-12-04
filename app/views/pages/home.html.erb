@@ -9,16 +9,57 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+    .box-wrapper {
+        flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    }
+
+    #box1 {
+        padding: 10px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: row;
+        border: solid 1px green;
+    }
+
+    #box2 {
+        padding: 10px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: row;
+        border: solid 1px green;
+    }
+
+    #box3 {
+    padding: 10px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    border: solid 1px green;
+    }
+    </style>
   </head>
 
   <body>
-            <% if user_signed_in? %>     
-    <%= render 'shared/navbar' %>
-              <%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-    <h3>Hola <%= @me.name %>! (<%= @me.id %>) </h3>
-     
+
+    <h3>Hola <%= @me.name %>!</h3>
+
+    <div class="box-wrapper">
+      <div id="box1"> Prospectos:
+        <%= @desglose["prospecto"] %></div>
+      <div id="box2"> Interesados:
+        <%= @desglose["interesado"] %></div>
+      <div id="box2"> Clientes:
+        <%= @desglose["cliente"] %></div>
+    </div>
+
     <h4> Tablero de prospectos </h4>
-    <p><%= link_to 'Agregar prospecto', new_lead_path%></p>
+    <p>
+      <%= link_to '➕', new_lead_path, title: 'Agregar prospecto'%>
+
+    </p>
        <table>
       <thead>
         <tr>
@@ -39,21 +80,18 @@
           <td><%= lead.name %></td>
           <td><%= lead.phone %></td>
           <td><%= lead.status %></td>
-          <td><%= lead.user_id %></td>
+          <td><%= User.find(lead.user_id).name %></td>
           <td><%= lead.indate %></td>
-          <td><%= lead.indate %></td>
+          <td><%= lead.meetings.count %>
+          <%= link_to "Ver", lead_meetings_path(lead) %></td>
           <td>
-          <%= link_to "📝", edit_lead_path(lead), title: 'Editar' %> | 
-          <%= link_to "🗑️", lead_path(lead), title: 'Eliminar', method: :delete, data: { confirm: "Esta seguro?"} %> </td>
+          <%= link_to "📝", edit_lead_path(lead), title: 'Editar prospecto' %> |
+          <%= link_to "🗑️", lead_path(lead), title: 'Eliminar prospecto', method: :delete, data: { confirm: "Esta seguro? Se eliminaran todas las conversaciones de este prospecto"} %> </td>
         </tr>
     <% end %>
       </tbody>
     </table>
     <%= yield %>
-        <% else %>
-          <h2>Restriccion de acceso</h2>
-          <p>El sitio esta restringido, si cree que debe tener acceso, contacte al admin en accesos@aprendizaje101.org</p>
-              <%= link_to "Iniciar sesion", new_user_session_path, class: "nav-link" %>
-          <% end %>
+
   </body>
 </html>

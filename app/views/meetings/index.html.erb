@@ -1,0 +1,34 @@
+<h4>  <%= link_to "Prospectos", root_path %></h4>
+<p>    <%= link_to "➕", new_lead_meeting_path, title: 'Agregar conversacion' %>
+  <%= #render('formmeeting')
+  %>
+</p>
+<% if @meetings.count != 0 %>
+  <h4>Conversaciones con el prospecto <%= @lead.name %></h4>
+  <table>
+    <thead>
+    <tr>
+      <th>Resumen</th>
+      <th>Detalle</th>
+      <th>Fecha ingreso</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <% @meetings.each do |meet| %>
+      <tr>
+        <td><%= meet.summary %></td>
+        <td><%= meet.content %></td>
+        <td><%= meet.created_at %></td>
+      </tr>
+
+
+    <% end %>
+    </tbody>
+
+  </table>
+<% else %>
+  <p>No hay conversaciones!</p>
+<% end %>
+
+

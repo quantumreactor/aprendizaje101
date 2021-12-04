@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable,
          :recoverable, :rememberable, :validatable
 
-  has_many :leads, dependent: :destroy
-  accepts_nested_attributes_for :leads
+  has_many :leads, through: :meetings, dependent: :destroy
+  #accepts_nested_attributes_for :leads
 
-  has_many :meetings, through: :leads
-  accepts_nested_attributes_for :meetings
+  has_many :meetings
+  #accepts_nested_attributes_for :meetings
 end

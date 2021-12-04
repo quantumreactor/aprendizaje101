@@ -1,4 +1,6 @@
 class LeadsController < ApplicationController
+  before_action :set_lead, only: [:show, :edit, :update, :destroy]
+
   def index
     redirect_to '/'
   end
@@ -13,8 +15,9 @@ class LeadsController < ApplicationController
 
   def create
     @lead = Lead.new(lead_params)
+    @lead.user = current_user
     if @lead.save
-      redirect_to leads_path
+      redirect_to leads_path(@lead)
     else
       render :new
     end
@@ -27,18 +30,17 @@ class LeadsController < ApplicationController
   end
 
   def update
-    find_lead
     @lead.update(lead_params)
-    redirect_to '/'
+    redirect_to leads_path
   end
 
   private
 
   def lead_params
-    params.require(:lead).permit(:email, :name, :phone, :status, :indate, :id)
+    params.require(:lead).permit(:email, :name, :phone, :status, :indate, :user)
   end
 
-  def find_lead
+  def set_lead
     @lead = Lead.find(params[:id])
   end
 

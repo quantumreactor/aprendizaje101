@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'meeting/index'
+  get 'meeting/show'
   root to: 'pages#home'
   
   devise_for :users

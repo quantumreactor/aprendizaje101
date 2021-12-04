@@ -6,7 +6,7 @@ class CreateLeads < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :phone
       t.date :indate
-      t.references :user, null: false, foreign_key: true
+      t.belongs_to :user
 
       t.timestamps
     end
