@@ -1,6 +1,8 @@
 class MeetingsController < ApplicationController
-  before_action :find_lead, except: [ :new, :create ]
+  before_action :find_lead, except: [ :new ]
+
   def index
+    @meeting = Meeting.new
     @meetings = @lead.meetings
   end
 
@@ -9,16 +11,20 @@ class MeetingsController < ApplicationController
   end
 
   def new
-    @meeting = Meeting.new
+    #@meeting = Meeting.new
   end
 
   def create
     @meeting = Meeting.new(meeting_params)
+    #weno, estas dos siguientes lineas me costo un trio de horas averiguarlas
     @meeting.lead = @lead
+    @meeting.user = current_user
+    #byebug
+
     if @meeting.save
-      redirect_to meetings_path(@lead)
+      redirect_to lead_meetings_path(@lead)
     else
-      render 'pages/home'
+      render lead_meeting_path
     end
   end
 
@@ -27,7 +33,7 @@ class MeetingsController < ApplicationController
   private
 
   def meeting_params
-    params.require(:lead).permit(:summary, :content)
+    params.require(:meeting).permit(:summary, :content)
   end
 
   def find_lead

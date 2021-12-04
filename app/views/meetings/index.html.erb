@@ -1,8 +1,5 @@
 <h4>  <%= link_to "Prospectos", root_path %></h4>
-<p>    <%= link_to "➕", new_lead_meeting_path, title: 'Agregar conversacion' %>
-  <%= #render('formmeeting')
-  %>
-</p>
+<p></p>
 <% if @meetings.count != 0 %>
   <h4>Conversaciones con el prospecto <%= @lead.name %></h4>
   <table>
@@ -30,5 +27,8 @@
 <% else %>
   <p>No hay conversaciones!</p>
 <% end %>
+<p>Nueva conversacion</p>
+<%= render('formmeeting')
+%>
 
 

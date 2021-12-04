@@ -1,28 +1,63 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Aprendizaje101</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Aprendizaje101</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <style>
+      .box-wrapper {
+          flex-grow: 1;
+          display: flex;
+          flex-direction: row;
+      }
 
-  <body>
-  <% #if user_signed_in?
-  %>
+      #box1 {
+          padding: 10px;
+          flex-grow: 1;
+          display: flex;
+          flex-direction: row;
+          border: solid 1px green;
+      }
+
+      #box2 {
+          padding: 10px;
+          flex-grow: 1;
+          display: flex;
+          flex-direction: row;
+          border: solid 1px green;
+      }
+
+      #box3 {
+          padding: 10px;
+          flex-grow: 1;
+          display: flex;
+          flex-direction: row;
+          border: solid 1px green;
+      }
+  </style>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+
+  <% if user_signed_in?   %>
   <%= render 'shared/navbar' %>
    <%= yield %>
    <%= render 'shared/flashes' %>
 
-  <% #else
-  #%>
+  <% else  %>
     <h2>Restriccion de acceso</h2>
     <p>El sitio esta restringido, si cree que debe tener acceso, contacte al admin en accesos@aprendizaje101.org</p>
     <%= link_to "Iniciar sesion", new_user_session_path, class: "nav-link" %>
-  <% #end
-  #%>
+  <% end %>
   </body>
 </html>
