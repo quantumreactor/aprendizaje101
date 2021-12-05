@@ -1,5 +1,5 @@
 class MeetingsController < ApplicationController
-  before_action :find_lead, except: [ :new ]
+  before_action :find_lead,  except: [ :new ]
 
   def index
     @meeting = Meeting.new

@@ -1,5 +1,5 @@
 
-<h3>Hola <%= #@me.name
+<h3>Hola <%= @me.name
 %>!</h3>
 
 <div class="box-wrapper">
@@ -38,8 +38,7 @@
       <td><%= lead.status %></td>
       <td><%= User.find(lead.user_id).name %></td>
       <td><%= lead.indate %></td>
-      <td><%= lead.meetings.count %>
-        <%= link_to "Ver", lead_meetings_path(lead) %></td>
+      <td><%= link_to "#{lead.meetings.count}", lead_meetings_path(lead) %></td>
       <td>
         <%= link_to "📝", edit_lead_path(lead), title: 'Editar prospecto' %> |
         <%= link_to "🗑️", lead_path(lead), title: 'Eliminar prospecto', method: :delete, data: { confirm: "Esta seguro? Se eliminaran todas las conversaciones de este prospecto"} %> </td>
