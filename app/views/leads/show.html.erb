@@ -25,7 +25,7 @@
 
 <h4> Tablero de prospectos </h4>
 <p>
-  <%= link_to '➕', new_lead_path, title: 'Agregar prospecto'%>
+  <%= link_to '➕ Agregar un prospecto', new_lead_path, title: 'Agregar prospecto'%>
 </p>
 <div class="table-responsive">
 <table class="table table-borderless align-top">
@@ -50,10 +50,15 @@
       <td><%= lead.status %></td>
       <td><%= User.find(lead.user_id).name %></td>
       <td><%= lead.indate %></td>
-      <td><%= link_to "#{lead.meetings.count}💬", lead_meetings_path(lead), title: 'Numero de juntas/llamadas' %></td>
       <td>
+        <span class="fs-5"><%= link_to "#{lead.meetings.count}💬", lead_meetings_path(lead), title: 'Numero de juntas/llamadas' %></span></td>
+      <td>
+        <span class="fs-5">
         <%= link_to "📝", edit_lead_path(lead), title: 'Editar prospecto' %>
-        <%= link_to "🗑️", lead_path(lead), title: 'Eliminar prospecto', method: :delete, data: { confirm: "Esta seguro? Se eliminaran todas las conversaciones de este prospecto"} %> </td>
+        <%= link_to "🗑️", lead_path(lead), title: 'Eliminar prospecto', method: :delete, data: { confirm: "Esta seguro? Se eliminaran todas las conversaciones de este prospecto"} %>
+        </span>
+      </td>
+
     </tr>
   <% end %>
   </tbody>
