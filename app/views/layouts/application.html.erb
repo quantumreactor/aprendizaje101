@@ -13,12 +13,14 @@
 <body>
 <%= render 'shared/navbar' %>
 <% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
+  <div class="alert alert-success"><%= notice %></div>
 <% end %>
 <% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
+  <div class="alert alert-danger"><%= alert %></div>
 <% end %>
+<div class="align-content-center px-2">
 <%= yield %>
+</div>
 <%= render 'shared/flashes' %>
 </body>
 </html>

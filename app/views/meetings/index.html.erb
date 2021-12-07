@@ -2,8 +2,10 @@
 <p></p>
 <% if @meetings.count != 0 %>
   <h4>Conversaciones con el prospecto <%= @lead.name %></h4>
-  <table>
-    <thead>
+  <div class="table-responsive">
+
+  <table  class="table table-borderless align-top">
+    <thead class="table-dark">
     <tr>
       <th>Resumen</th>
       <th>Detalle</th>
@@ -24,6 +26,7 @@
     </tbody>
 
   </table>
+  </div>
 <% else %>
   <p>No hay conversaciones!</p>
 <% end %>

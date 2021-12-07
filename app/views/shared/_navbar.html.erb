@@ -1,16 +1,12 @@
-<div class="navbar navbar-dark bg-dark">
-  <div class="container-fluid">
+<nav class="navbar navbar-dark bg-dark text-white navbar-expand-sm">
 
-
-    <%= link_to "Home", class: "navbar-brand" do %>
-    <% end %>
-      <% if user_signed_in? %>
-        Aprendizaje101 CRM Intraweb
-        <%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-        Sesion iniciada: <strong><%= current_user.email %></strong>.
-      <% else %>
-        <%= link_to "Iniciar sesion", new_user_session_path, class: "nav-link" %>
+    <% if user_signed_in? %>
+      <div class="p-2 flex-grow-1 bd-highlight"><%= link_to "Aprendizaje101 CRM Intraweb", root_path %></div>
+      <div class="p-2 bd-highlight">Sesion iniciada: <strong><%= current_user.email %></strong></div>
+      <div class="p-2 bd-highlight"><%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete %></div>
+    <% else %>
+    <div class="p-2 bd-highlight"><%= link_to "Iniciar sesion", new_user_session_path, class: "nav-link" %></div>
       <% end %>
 
-  </div>
-</div>
+</nav>
+
