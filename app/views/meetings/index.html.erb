@@ -13,7 +13,7 @@
     <tbody>
 
     <% @meetings.each do |meet| %>
-      <tr>
+      <tr class="<%= cycle('even', 'odd') -%>">
         <td><%= meet.summary %></td>
         <td><%= meet.content %></td>
         <td><%= meet.created_at %></td>

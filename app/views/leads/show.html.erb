@@ -31,7 +31,7 @@
   </thead>
   <tbody>
   <% @leads.each do |lead| %>
-    <tr>
+    <tr class="<%= cycle('even', 'odd') -%>">
       <td><%= lead.email %></td>
       <td><%= lead.name %></td>
       <td><%= lead.phone %></td>
