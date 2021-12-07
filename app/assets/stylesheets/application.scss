@@ -13,41 +13,10 @@
  *= require_tree .
  *= require_self
  */
-.odd {background-color: #BBBBBB;}
-.even{background-color: lightsteelblue;}
-.box-wrapper {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: row;
-}
-
-#box1 {
-    padding: 10px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: row;
-    border: solid 1px green;
-}
-
-#box2 {
-    padding: 10px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: row;
-    border: solid 1px green;
-}
-
-#box3 {
-    padding: 10px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: row;
-    border: solid 1px green;
-}
 // Graphical variables
-@import "config/fonts";
-@import "config/colors";
-@import "config/bootstrap_variables";
+//@import "config/fonts";
+//@import "config/colors";
+//@import "config/bootstrap_variables";
 
 // External libraries
 @import "bootstrap/scss/bootstrap";
@@ -55,13 +24,12 @@
 @import "font-awesome";
 
 // Your CSS partials
-@import "components/index";
-@import "pages/index";
+//@import "components/index";
+//@import "pages/index";
 
-.btn-primary {
-    color: white;
-}
 
+.odd {background-color: #F7F7F7;}
+.even{background-color: #DADADA;}
 a {
     text-decoration: none;
 }
