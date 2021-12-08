@@ -46,7 +46,7 @@ class LeadsController < ApplicationController
 
   def update
     @lead.update(lead_params)
-    redirect_to leads_path
+    redirect_to root_path
   end
 
   private
