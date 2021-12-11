@@ -7,11 +7,11 @@
 ### Clonar repositorio
 
 ```shell
-git clone git@github.com:juliendargelos/project.git
-cd project
+git clone git@github.com:quantumreactor/aprendizaje101.git
+cd aprendizaje101
 ```
 
-### Check your Ruby version
+### Verificar version de Ruby
 
 ```shell
 ruby -v
@@ -33,7 +33,7 @@ Use [Bundler](https://github.com/bundler/bundler) y tambien [Yarn](https://githu
 bundle && yarn
 ```
 
-### Initialice la base de datos
+### Inicialice la base de datos
 
 ```shell
 rails db:create db:migrate db:seed

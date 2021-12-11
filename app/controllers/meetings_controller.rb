@@ -24,7 +24,7 @@ class MeetingsController < ApplicationController
     if @meeting.save
       redirect_to lead_meetings_path(@lead)
     else
-      render lead_meeting_path
+      render :new
     end
   end
 

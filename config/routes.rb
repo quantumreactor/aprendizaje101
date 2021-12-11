@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   #get 'meeting/index'
   #get 'meeting/show'
+  get 'users/sign_up', to: 'leads#show'
   root to: 'leads#show'
   
   devise_for :users
