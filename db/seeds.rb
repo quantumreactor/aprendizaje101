@@ -48,7 +48,7 @@ lead0 = Lead.new({
   status: "prospecto",
   email: "pepe@iberia.com",
   name: "jose iberico",
-  phone: "+5698245854",
+  phone: "982458543",
   indate: "2021-09-03",
   user: user0,
 })
@@ -58,7 +58,7 @@ lead1 = Lead.new({
   status: "interesado",
   email: "habibi@persia.com",
   name: "habibollah nasrullah",
-  phone: "+5698245854",
+  phone: "982458543",
   indate: "2021-06-10",
   user: user0,
 })
@@ -68,7 +68,7 @@ lead2 = Lead.new({
   status: "cliente",
   email: "nathan@aussie.com",
   name: "Nathan McCulloch",
-  phone: "+5698245854",
+  phone: "982458543",
   indate: "2021-02-08",
   user: user0,
 })
@@ -78,7 +78,7 @@ lead3 = Lead.new({
                    status: "prospecto",
                    email: "sirlord@uk.co",
                    name: "Iain M Banks",
-                   phone: "+56982434254",
+                   phone: "982434254",
                    indate: "2021-09-09",
                    user: user2,
                  })
@@ -88,7 +88,7 @@ lead4 = Lead.new({
                    status: "interesado",
                    email: "gaston@ar.com",
                    name: "Gaston Argentini",
-                   phone: "+56934554",
+                   phone: "934554436",
                    indate: "2019-01-11",
                    user: user1,
                  })
@@ -98,7 +98,7 @@ lead5 = Lead.new({
                    status: "interesado",
                    email: "paco@tenerife.com",
                    name: "Francisco de la Palma",
-                   phone: "+569824563",
+                   phone: "982456353",
                    indate: "2021-07-05",
                    user: user2,
                  })
@@ -108,7 +108,7 @@ lead6 = Lead.new({
                    status: "prospecto",
                    email: "kludio@ct.com",
                    name: "Claudio Hortigosa",
-                   phone: "+56934563564",
+                   phone: "934563564",
                    indate: "2021-03-02",
                    user: user2,
                  })
@@ -118,7 +118,7 @@ lead7 = Lead.new({
                    status: "prospecto",
                    email: "rcanales@segsal.com",
                    name: "Roberto Canales",
-                   phone: "+5652345234",
+                   phone: "952345234",
                    indate: "2021-05-02",
                    user: user1,
                  })
@@ -128,7 +128,7 @@ lead8 = Lead.new({
                    status: "cliente",
                    email: "edunal@cls.com",
                    name: "Eduardo Aldunate",
-                   phone: "+5694563654",
+                   phone: "945636544",
                    indate: "2021-04-04",
                    user: user1,
                  })
@@ -138,7 +138,7 @@ lead9 = Lead.new({
                    status: "prospecto",
                    email: "artemis@helenics.com",
                    name: "Arturo Temistocles",
-                   phone: "+56985675674",
+                   phone: "985675674",
                    indate: "2021-06-03",
                    user: user0,
                  })
@@ -151,7 +151,7 @@ Lead.create(
 status: "prospecto",
 email: "tito@iberia.com",
 name: "roberto cadiz",
-phone: "+56912457856",
+phone: "912457856",
 indate: "2021-04-06",
 user: user1
 )
@@ -159,7 +159,7 @@ Lead.create(
 status: "interesado",
 email: "rulo@scel.com",
 name: "rodolfo usquidez",
-phone: "+569564654",
+phone: "956465433",
 indate: "2021-02-08",
 user: user1
 )
@@ -169,7 +169,7 @@ Lead.create(
 status: "prospecto",
 email: "jorge@scel.com",
 name: "Jorge Sanhueza",
-phone: "+569834545654",
+phone: "983454565",
 indate: "2021-06-07",
 user: user2
 )
