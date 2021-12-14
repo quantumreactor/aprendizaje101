@@ -1,6 +1,6 @@
 <h4>  <%= link_to "Prospectos", root_path %></h4>
 <p></p>
-<% if @meetings.count != 0 %>
+<% unless @meetings.count == 0 %>
   <h4>Conversaciones con el prospecto <%= @lead.name %></h4>
   <div class="table-responsive">
 

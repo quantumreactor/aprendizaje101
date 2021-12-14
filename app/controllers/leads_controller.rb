@@ -1,5 +1,8 @@
 class LeadsController < ApplicationController
-  before_action :set_lead, only: [ :edit, :update, :destroy]
+  attr_accessor :statuses
+  before_action :set_lead, only: [:edit, :update, :destroy]
+
+  @@statuses = Status.pluck("status")
 
   def index
     @leads = Lead.all
@@ -21,6 +24,8 @@ class LeadsController < ApplicationController
 
   def new
     @lead = Lead.new
+    #@statuses = Status.pluck("status")
+    @statuses = @@statuses
   end
 
   def edit
@@ -31,6 +36,7 @@ class LeadsController < ApplicationController
   def create
     @lead = Lead.new(lead_params)
     @lead.user = current_user
+    @statuses = @@statuses
     if @lead.save
       redirect_to lead_path(@lead)
     else
