@@ -1,4 +1,5 @@
-<%= simple_form_for(@lead) do |l| %>
+<%= simple_form_for @lead , :html => { :class => 'form-horizontal' } do |l| %>
+
   <%= l.input :status, :collection => @statuses, selected: @statuses[0], label: false %>
   <%= l.input :name,  placeholder: 'Nombre Completo', label: false %>
   <%= l.input :email, placeholder: 'usuario@sitio.com', label: false %>
@@ -6,4 +7,6 @@
   <%= l.input :indate, as: :date, start_year: Date.today.year - 5,
               end_year: Date.today.year, order: [:day, :month, :year], label: 'Fecha de ingreso'  %><br>
   <%= l.submit 'Crear prospecto',  class: 'btn button btn-primary'  %><br>
+
+
 <% end %>

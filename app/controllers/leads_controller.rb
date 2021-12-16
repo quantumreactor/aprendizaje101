@@ -1,5 +1,4 @@
 class LeadsController < ApplicationController
-  attr_accessor :statuses
   before_action :set_lead, only: [:edit, :update, :destroy]
 
   @@statuses = Status.pluck("status")
@@ -18,8 +17,8 @@ class LeadsController < ApplicationController
     #@leads = Lead.where("user_id = #{@me.id}")
     ###############
     @meetings = Meeting.where("user_id = #{@me.id}")
-    #Lead.pluck.tally   # si pero tally es para ruby 2.7
-    @desglose = Lead.pluck(:status).each_with_object(Hash.new(0)) { |v, h| h[v] += 1 }
+    @desglose  = Lead.pluck("status").tally   # si pero tally es para ruby 2.7
+    #@desglose = Lead.pluck(:status).each_with_object(Hash.new(0)) { |v, h| h[v] += 1 } #versiones anteriores a 2.7
   end
 
   def new
