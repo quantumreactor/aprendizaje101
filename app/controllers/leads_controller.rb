@@ -1,8 +1,6 @@
 class LeadsController < ApplicationController
   before_action :set_lead, only: [:edit, :update, :destroy]
 
-  @@statuses = Status.pluck("status")
-
   def index
     @leads = Lead.all
   end
@@ -16,15 +14,14 @@ class LeadsController < ApplicationController
     # el admin puede ver todo, los usuarios solo sus leads
     #@leads = Lead.where("user_id = #{@me.id}")
     ###############
+    # TODO: hacer un scope para la siguiente linea
     @meetings = Meeting.where("user_id = #{@me.id}")
-    @desglose  = Lead.pluck("status").tally   # si pero tally es para ruby 2.7
-    #@desglose = Lead.pluck(:status).each_with_object(Hash.new(0)) { |v, h| h[v] += 1 } #versiones anteriores a 2.7
+    @desglose = Lead.pluck("status").tally   # si pero tally es para ruby 2.7
   end
 
   def new
     @lead = Lead.new
-    #@statuses = Status.pluck("status")
-    @statuses = @@statuses
+    @statuses = statuses
   end
 
   def edit
@@ -35,7 +32,7 @@ class LeadsController < ApplicationController
   def create
     @lead = Lead.new(lead_params)
     @lead.user = current_user
-    @statuses = @@statuses
+    @statuses = statuses
     if @lead.save
       redirect_to lead_path(@lead)
     else
@@ -64,5 +61,8 @@ class LeadsController < ApplicationController
     @lead = Lead.find(params[:id])
   end
 
+  def statuses
+    Status.pluck("status")
+  end
 
 end
