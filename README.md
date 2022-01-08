@@ -17,12 +17,12 @@ cd aprendizaje101
 ruby -v
 ```
 
-Debe mostrar algo como `ruby 2.6.6`
+Debe mostrar algo como `ruby 2.7.4`
 
 Si no, instale la version correcta de ruby usando [rbenv](https://github.com/rbenv/rbenv) (podria tardar algo):
 
 ```shell
-rbenv install 2.6.6
+rbenv install 2.7.4
 ```
 
 ### Instalar dependencias
